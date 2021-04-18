@@ -5,16 +5,14 @@ import App from './App';
 import { store } from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
-import ModernNormalize from 'react-modern-normalize';
+import 'modern-normalize/modern-normalize.css';
 import './index.css';
 
 ReactDOM.render(
   <Provider store={store}>
-    <ModernNormalize>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ModernNormalize>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root'),
 );

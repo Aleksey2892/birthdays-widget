@@ -1,32 +1,37 @@
 .header {
   padding-top: 15px;
-  margin-bottom: 30px;
+  font-family: 'VodafoneBold';
+  font-weight: 600;
+}
+
+.nav {
+  padding-bottom: 5px;
 }
 
 .imgWrapper {
   position: relative;
-  padding-bottom: 1vw;
+  padding-bottom: 1.5vw;
 
   &:after {
     position: absolute;
     content: '';
     display: block;
     width: 100vw;
-    height: 1vw;
+    height: 1.5vw;
     bottom: 0;
     background-color: #d80027;
   }
 }
 
 .headerImg {
-  width: 15%;
+  width: 25%;
   display: block;
   margin: 0 auto;
 }
 
 .headerTitle {
   margin-top: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   color: #e72722;
   font-size: 40px;
   text-transform: uppercase;
@@ -49,6 +54,7 @@ nav {
   text-transform: uppercase;
   text-decoration: none;
   transition: all 0.25s linear;
+  font-family: 'VodafoneLight';
   font-weight: normal;
 
   &:hover {
@@ -65,7 +71,8 @@ nav {
 .recentActiveLink,
 .todayActiveLink,
 .comingActiveLink {
-  font-weight: bold;
+  font-family: 'VodafoneBold';
+  font-weight: 400;
 
   &::after {
     position: absolute;

@@ -11,7 +11,7 @@ export default function Header() {
       </div>
       <p className={s.headerTitle}>Birthdays</p>
 
-      <nav>
+      <nav className={s.nav}>
         <NavLink
           to={'/recent'}
           className={s.recentLink}
