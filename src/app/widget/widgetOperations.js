@@ -9,18 +9,12 @@ export const baseUrl = axios.defaults.baseURL;
 const getRecentBirthdays = createAsyncThunk(
   'widget/getRecentBirthdays',
   async (_, { rejectWithValue }) => {
-    const { getRecentDate, getCurrentDate } = datesHelper;
-    const date = {
-      dd: { recent: getRecentDate('DD'), current: getCurrentDate('DD') - 1 },
-      mm: { recent: getRecentDate('MM'), current: getCurrentDate('MM') },
-    };
+    const { getRecentDates } = datesHelper;
 
     try {
       const {
         data: { users },
-      } = await axios(
-        `/api/birthdays?dateFrom=${date.mm.recent}.${date.dd.recent}&dateTo=${date.mm.current}.${date.dd.current}`,
-      );
+      } = await axios(`/api/birthdays?${getRecentDates()}`);
 
       if (users.length > 0) {
         const updatedUsersArr = updateUsersArr.recentDates(users);
@@ -36,18 +30,12 @@ const getRecentBirthdays = createAsyncThunk(
 const getTodayBirthdays = createAsyncThunk(
   'widget/getTodayBirthdays',
   async (_, { rejectWithValue }) => {
-    const { getCurrentDate } = datesHelper;
-    const date = {
-      dd: { current: getCurrentDate('DD') },
-      mm: { current: getCurrentDate('MM') },
-    };
+    const { getCurrentDates } = datesHelper;
 
     try {
       const {
         data: { users },
-      } = await axios(
-        `/api/birthdays?dateFrom=${date.mm.current}.${date.dd.current}&dateTo=${date.mm.current}.${date.dd.current}`,
-      );
+      } = await axios(`/api/birthdays?${getCurrentDates()}`);
 
       if (users.length > 0) {
         const updatedUsersArr = updateUsersArr.todayDates(users);
@@ -63,18 +51,12 @@ const getTodayBirthdays = createAsyncThunk(
 const getComingBirthdays = createAsyncThunk(
   'widget/getComingBirthdays',
   async (_, { rejectWithValue }) => {
-    const { getCurrentDate, getComingDate } = datesHelper;
-    const date = {
-      dd: { current: getCurrentDate('DD') + 1, coming: getComingDate('DD') },
-      mm: { current: getCurrentDate('MM'), coming: getComingDate('MM') },
-    };
+    const { getComingDates } = datesHelper;
 
     try {
       const {
         data: { users },
-      } = await axios(
-        `/api/birthdays?dateFrom=${date.mm.current}.${date.dd.current}&dateTo=${date.mm.coming}.${date.dd.coming}`,
-      );
+      } = await axios(`/api/birthdays?${getComingDates()}`);
 
       if (users.length > 0) {
         const updatedUsersArr = updateUsersArr.comingDates(users);
