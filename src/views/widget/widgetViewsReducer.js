@@ -1,19 +1,22 @@
 function reducer(state, action) {
+  const usersLength = action.allUsers.length;
+  const moreCounter = state.moreCounter + action.counter;
+
   switch (action.type) {
-    case 'slicedUsers':
-      return {
-        slicedUsers: [...action.users],
-        moreCounter: state.moreCounter + action.counter,
-      };
     case 'firstLoad':
       return {
         slicedUsers: [...action.users],
-        moreCounter: state.moreCounter + action.counter,
+        moreCounter: usersLength > moreCounter ? moreCounter : usersLength,
+      };
+    case 'slicedUsers':
+      return {
+        slicedUsers: [...action.users],
+        moreCounter: usersLength > moreCounter ? moreCounter : usersLength,
       };
     default:
       return {
         slicedUsers: [],
-        moreCounter: 0,
+        moreCounter: 6,
       };
   }
 }

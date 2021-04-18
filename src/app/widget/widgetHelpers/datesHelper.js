@@ -28,15 +28,16 @@ const getCurrentDates = () => {
 
   const currentMMDD = moment().format('MM-DD');
   const currentYear = moment().format('YYYY');
-  const isleapyear = moment([currentYear]).isLeapYear();
+  const isLeapYear = moment([currentYear]).isLeapYear();
 
-  if (!isleapyear && currentMMDD !== '02-28') {
-    return `dateFrom=${current.MM}.${current.DD}&dateTo=${current.MM}.${current.DD}`;
+  //! If 'isLeapYear' === true and
+  //! current date === 02.28 - used this return
+  if (isLeapYear && currentMMDD === '02-28') {
+    return `dateFrom=${current.MM}.${current.DD}&dateTo=${current.MMleapY}.${current.DDleapY}`;
   }
 
-  //! If 'isleapyyear' === true and
-  //! current date === 02.28 - used this return
-  return `dateFrom=${current.MM}.${current.DD}&dateTo=${current.MMleapY}.${current.DDleapY}`;
+  //! default return
+  return `dateFrom=${current.MM}.${current.DD}&dateTo=${current.MM}.${current.DD}`;
 };
 
 const getComingDates = () => {

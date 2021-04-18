@@ -17,7 +17,7 @@ export default function TodayView() {
   const usersEndRef = useRef(null);
   const [state, setState] = useReducer(reducer, {
     slicedUsers: [],
-    moreCounter: 3,
+    moreCounter: 6,
   });
   const dispatch = useDispatch();
 
@@ -29,8 +29,9 @@ export default function TodayView() {
     if (users.length > 0) {
       setState({
         type: 'firstLoad',
-        users: users.slice(0, 3),
-        counter: 3,
+        users: users.slice(0, 6),
+        counter: 6,
+        allUsers: users,
       });
     }
   }, [users]);
@@ -43,7 +44,8 @@ export default function TodayView() {
     setState({
       type: 'slicedUsers',
       users: users.slice(0, state.moreCounter),
-      counter: 3,
+      counter: 6,
+      allUsers: users,
     });
   };
 

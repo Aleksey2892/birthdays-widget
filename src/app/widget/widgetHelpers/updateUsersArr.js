@@ -8,13 +8,13 @@ const updateUsersArr = {
     return arr.sort((a, b) => a - b);
   },
 
-  sortByName(usersArr) {
+  sortBySurname(usersArr) {
     return usersArr.sort((a, b) => {
-      const nameA = a.name.toLowerCase();
-      const nameB = b.name.toLowerCase();
+      const surnameA = a.name.toLowerCase().split(' ');
+      const surnameB = b.name.toLowerCase().split(' ');
 
       if (a.birthday === b.birthday) {
-        return nameA < nameB ? -1 : 1;
+        return surnameA[1] < surnameB[1] ? -1 : 1;
       }
 
       return 0;
@@ -34,19 +34,20 @@ const updateUsersArr = {
   recentDates(usersArr) {
     const sortUsers = this.defaultSort(usersArr);
     const updatedUsersList = this.updateUsersData(sortUsers);
-    const sortUsersByName = this.sortByName(updatedUsersList);
-    return sortUsersByName;
+    const sortUsersBySurname = this.sortBySurname(updatedUsersList);
+    return sortUsersBySurname;
   },
 
   todayDates(usersArr) {
     const updatedUsersList = this.updateUsersData(usersArr);
-    return updatedUsersList;
+    const sortUsersBySurname = this.sortBySurname(updatedUsersList);
+    return sortUsersBySurname;
   },
 
   comingDates(usersArr) {
     const updatedUsersList = this.updateUsersData(usersArr);
-    const sortUsersByName = this.sortByName(updatedUsersList);
-    return sortUsersByName;
+    const sortUsersBySurname = this.sortBySurname(updatedUsersList);
+    return sortUsersBySurname;
   },
 };
 export default updateUsersArr;
