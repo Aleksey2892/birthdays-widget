@@ -10,11 +10,14 @@ export default function UsersList({ users }) {
           {users.map(user => {
             return (
               <li className={s.userItem} key={nanoid()}>
-                <img
-                  className={s.avatar}
-                  src={user.avatarUrl}
-                  alt={user.name}
-                />
+                <div className={s.imgWrapper}>
+                  <img
+                    className={s.avatar}
+                    src={user.avatarUrl}
+                    alt={user.name}
+                  />
+                </div>
+
                 <div className={s.userBlockInfo}>
                   <p className={s.infoName}>{user.name}</p>
                   <p className={s.infoPosition}>{user.jobTitle}</p>
