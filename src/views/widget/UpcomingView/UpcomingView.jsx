@@ -59,7 +59,7 @@ export default function ComingView() {
 
           {users.length > state.slicedUsers.length && (
             <button onClick={buttonMoreHandler} className={s.btnMore}>
-              load more...
+              show more...
             </button>
           )}
         </>

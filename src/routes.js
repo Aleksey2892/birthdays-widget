@@ -1,6 +1,6 @@
 const routes = {
   recent: '/recent',
   today: '/today',
-  coming: '/coming',
+  upcoming: '/upcoming',
 };
 export default routes;

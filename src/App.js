@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 
 import routes from './routes';
 import Header from './components/Header';
-import ComingView from './views/widget/ComingView';
+import ComingView from './views/widget/UpcomingView';
 import RecentView from './views/widget/RecentView';
 import TodayView from './views/widget/TodayView';
 
@@ -16,7 +16,7 @@ function App() {
         <Switch>
           <Route path={routes.recent} component={RecentView} />
           <Route path={routes.today} component={TodayView} />
-          <Route path={routes.coming} component={ComingView} />
+          <Route path={routes.upcoming} component={ComingView} />
 
           <Redirect to={routes.today} />
         </Switch>

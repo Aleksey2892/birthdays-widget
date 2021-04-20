@@ -45,12 +45,12 @@ const getComingDates = () => {
     MM: moment().add(1, 'days').format('MM'),
     DD: moment().add(1, 'days').format('DD'),
   };
-  const coming = {
+  const upcoming = {
     MM: moment().add(14, 'days').format('MM'),
     DD: moment().add(14, 'days').format('DD'),
   };
 
-  return `dateFrom=${current.MM}.${current.DD}&dateTo=${coming.MM}.${coming.DD}`;
+  return `dateFrom=${current.MM}.${current.DD}&dateTo=${upcoming.MM}.${upcoming.DD}`;
 };
 
 const datesHelper = {

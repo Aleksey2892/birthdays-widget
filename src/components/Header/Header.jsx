@@ -31,12 +31,12 @@ export default function Header() {
         </NavLink>
 
         <NavLink
-          to={'/coming'}
+          to={'/upcoming'}
           className={s.comingLink}
           activeClassName={s.comingActiveLink}
           exact
         >
-          Coming <span className={s.spanLink}>dates</span>
+          Upcoming <span className={s.spanLink}>dates</span>
         </NavLink>
       </nav>
     </header>
